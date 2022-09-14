@@ -1,6 +1,9 @@
 import json
-
+import boto3
 # import requests
+import logging
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
 
 
 def lambda_handler(event, context):
@@ -33,6 +36,8 @@ def lambda_handler(event, context):
 
     #     raise e
 
+    s3_client = boto3.client('s3', endpoint_url="http://localhost:4566")
+    s3_client.list_buckets()
     return {
         "statusCode": 200,
         "body": json.dumps({
