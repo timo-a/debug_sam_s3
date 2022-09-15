@@ -36,7 +36,7 @@ def lambda_handler(event, context):
 
     #     raise e
 
-    s3_client = boto3.client('s3', endpoint_url="http://localhost:4566")
+    s3_client = boto3.client('s3', endpoint_url="http://172.17.0.1:4566")
     s3_client.list_buckets()
     return {
         "statusCode": 200,
